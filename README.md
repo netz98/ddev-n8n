@@ -12,7 +12,9 @@ This addon sets up a n8n instance for your DDEV project. n8n is a free and open 
 
 ## Basic Authentication
 
-If not changed it's set to `n8n` and `n8n`.
+The Basic Auth is disabled by default.
+Enable it in the .ddev/docker-compose.n8n.yaml if required.
+The credentials are defined in the same file. If not changed it's set to `n8n` and `n8n` for username and password.
 
 ## Usage
 
