@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -ex
 
 echo "Waiting for MySQL to be ready ..."
 # Use wait-for-it to wait for MySQL to be ready

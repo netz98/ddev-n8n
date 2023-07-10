@@ -27,9 +27,20 @@ Change the environment variable `GENERIC_TIMEZONE` to your timezone.
 
 ### Database
 
-The n8n service uses the existing DDEV MySQL server. The `n8n/startup-script.sh`  creates a new database named `n8n` during startup of the container.
+#### Standard SQLite
 
-Currently **only mysql** is supported by the ddev add-on.
+The n8n service uses the standard SQLite database.
+The SQLite database file will be created as file `.ddev/n8n/database.sqlite` during the n8n container startup.
+
+#### MySQL
+
+We deliver the startup scripts to use the existing DDEV MySQL server (if configured). 
+The `n8n/startup-script.sh` creates a new database named `n8n` during startup of the container.
+
+To use MySQL you have to uncomment some configurations in the docker-compose.n8n.yaml file.
+
+Please note that the **mysql support was depprecated** by n8n.
+It is recommended to use Postgres. The latest n8n version had also startup issues in the ddev setup.
 
 ## Logging
 
