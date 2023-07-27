@@ -21,6 +21,7 @@ services:
       - db
     volumes:
       - ".:/mnt/ddev_config"
+      - "./n8n/data:/home/node/.n8n"
       # only for mysql
       #- "./n8n/startup-script.sh:/startup-script.sh"
     environment:
@@ -35,7 +36,6 @@ services:
       #N8N_LOG_LEVEL: debug
       N8N_LOG_OUTPUT: "stdout"
       VIRTUAL_HOST: "$DDEV_HOSTNAME"
-      DB_SQLITE_DB_FILE: "/mnt/ddev_config/n8n/database.sqlite"
       #DB_TYPE: mysqldb
       #DB_MYSQLDB_HOST: db
       #DB_MYSQLDB_PORT: 3306
