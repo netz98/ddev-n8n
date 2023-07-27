@@ -12,6 +12,8 @@ setup() {
 }
 
 health_checks() {
+  # wait until the service is started
+  sleep 10
   # Do something useful here that verifies the add-on
   ddev exec "curl -s http://n8n:5678" | grep n8n.io
 }

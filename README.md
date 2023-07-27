@@ -30,7 +30,7 @@ Change the environment variable `GENERIC_TIMEZONE` to your timezone.
 #### Standard SQLite
 
 The n8n service uses the standard SQLite database.
-The SQLite database file will be created as file `.ddev/n8n/data/database.sqlite` during the n8n container startup.
+The SQLite database file will be created as file `.ddev/n8n/data/.n8n/database.sqlite` during the n8n container startup.
 
 ## Logging
 
