@@ -18,7 +18,6 @@ health_checks() {
 teardown() {
   set -eu -o pipefail
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
-  chmod 777 ${TESTDIR}/.ddev/n8n/data
   ddev delete -Oy ${PROJNAME} >/dev/null 2>&1
   [ "${TESTDIR}" != "" ] && rm -rf ${TESTDIR}
 }
@@ -28,7 +27,6 @@ teardown() {
   cd ${TESTDIR}
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR}
-  chmod 777 ${TESTDIR}/.ddev/n8n/data
   if ! ddev restart; then
     ddev logs -s n8n
   fi
@@ -40,7 +38,6 @@ teardown() {
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
   echo "# ddev get netz98/ddev-n8n with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get netz98/ddev-n8n
-  chmod 777 ${TESTDIR}/.ddev/n8n/data
   if ! ddev restart >/dev/null; then
     ddev logs -s n8n
   fi

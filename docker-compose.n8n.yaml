@@ -11,6 +11,7 @@ services:
       com.ddev.approot: $DDEV_APPROOT
       com.ddev.app-url: $DDEV_URL
     restart: "no"
+    user: '$DDEV_UID:$DDEV_GID'
     expose:
       - "5678"
     volumes:
