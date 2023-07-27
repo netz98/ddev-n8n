@@ -32,23 +32,13 @@ Change the environment variable `GENERIC_TIMEZONE` to your timezone.
 The n8n service uses the standard SQLite database.
 The SQLite database file will be created as file `.ddev/n8n/data/database.sqlite` during the n8n container startup.
 
-#### MySQL
-
-We deliver the startup scripts to use the existing DDEV MySQL server (if configured). 
-The `n8n/startup-script.sh` creates a new database named `n8n` during startup of the container.
-
-To use MySQL you have to uncomment some configurations in the docker-compose.n8n.yaml file.
-
-Please note that the **mysql support was depprecated** by n8n.
-It is recommended to use Postgres. The latest n8n version had also startup issues in the ddev setup.
-
 ## Logging
 
 n8n logs are directed to the container's stdout. You can view the logs with `ddev logs -s n8n`.
 
 ## Security
 
-The n8n service can protected with basic authentication. 
+The n8n service access can be protected with basic authentication.
 It's disabled by default.
 
 You can enable it by changing the variable `N8N_BASIC_AUTH_ACTIVE` in `.ddev/docker-compose.n8n.yaml` to `true`. 

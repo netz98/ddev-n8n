@@ -4,11 +4,7 @@ version: '3.6'
 services:
   n8n:
     container_name: ddev-${DDEV_SITENAME}-n8n
-    build:
-      context: ./n8n/
-      dockerfile: Dockerfile
-    # only for mysql
-    #command: ["/bin/sh", "/startup-script.sh"]
+    image: docker.n8n.io/n8nio/n8n:latest
     networks: [default, ddev_default]
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
@@ -21,8 +17,6 @@ services:
       - db
     volumes:
       - ".:/mnt/ddev_config"
-      # only for mysql
-      #- "./n8n/startup-script.sh:/startup-script.sh"
     environment:
       GENERIC_TIMEZONE: "Europe/Berlin"
       N8N_BASIC_AUTH_ACTIVE: false
@@ -36,11 +30,5 @@ services:
       #N8N_LOG_LEVEL: debug
       N8N_LOG_OUTPUT: "stdout"
       VIRTUAL_HOST: "$DDEV_HOSTNAME"
-      #DB_TYPE: mysqldb
-      #DB_MYSQLDB_HOST: db
-      #DB_MYSQLDB_PORT: 3306
-      #DB_MYSQLDB_USER: db
-      #DB_MYSQLDB_PASSWORD: db
-      #DB_MYSQLDB_DATABASE: n8n
       HTTP_EXPOSE: "5678:5678"
       HTTPS_EXPOSE: "5679:5678"
