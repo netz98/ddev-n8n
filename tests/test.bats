@@ -27,7 +27,7 @@ teardown() {
   cd ${TESTDIR}
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR}
-  if ddev restart; then
+  if ! ddev restart; then
     ddev logs -s n8n
   fi
   health_checks
@@ -38,7 +38,7 @@ teardown() {
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
   echo "# ddev get netz98/ddev-n8n with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get netz98/ddev-n8n
-  if ddev restart >/dev/null; then
+  if ! ddev restart >/dev/null; then
     ddev logs -s n8n
   fi
   health_checks
