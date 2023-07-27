@@ -13,8 +13,6 @@ services:
     restart: "no"
     expose:
       - "5678"
-    depends_on:
-      - db
     volumes:
       - ".:/mnt/ddev_config"
     environment:
