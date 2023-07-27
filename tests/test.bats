@@ -29,6 +29,9 @@ teardown() {
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR}
   ddev restart
+  if [ $? -ne 0 ]; then
+    ddev logs -s n8n
+  fi
   health_checks
 }
 
@@ -38,5 +41,8 @@ teardown() {
   echo "# ddev get netz98/ddev-n8n with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get netz98/ddev-n8n
   ddev restart >/dev/null
+  if [ $? -ne 0 ]; then
+    ddev logs -s n8n
+  fi
   health_checks
 }
