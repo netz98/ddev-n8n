@@ -15,6 +15,18 @@ Run `ddev describe` to list your project's services and their URLs.
 
 ## Configuration
 
+### Docker
+
+To modify the build of the used n8n image for the container there are dotenv variables available.
+
+- `N8N_TAG` - The used n8n image tag. Default is `latest`.
+
+Use the ddev dotenv command to set these variables.
+
+```bash
+ddev dotenv set .ddev/.env.n8n --n8n-tag=1.50.0
+```
+
 ### n8n Settings
 
 Settings are in general defined in the file `.ddev/docker-compose.n8n.yaml` via environment variables.
