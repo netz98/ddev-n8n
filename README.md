@@ -4,8 +4,10 @@ This addon sets up a n8n instance for your DDEV project. n8n is a free and open 
 
 ## Installation
 
-1. Run `ddev get netz98/ddev-n8n` to install the addon in your exiting ddev project.
+1. Run `ddev add-on get netz98/ddev-n8n` to install the addon in your exiting ddev project.
 2. `ddev restart` to restart your project.
+
+**Note:** For older versions of DDEV (prior to v1.23.5), use `ddev get netz98/ddev-n8n` instead of `ddev add-on get`.
 
 ## Usage
 
@@ -60,4 +62,3 @@ It's disabled by default.
 
 You can enable it by changing the variable `N8N_BASIC_AUTH_ACTIVE` in `.ddev/docker-compose.n8n.yaml` to `true`. 
 The username and password can be configured in the same file.
-
