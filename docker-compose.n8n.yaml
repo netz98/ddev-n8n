@@ -4,7 +4,7 @@ version: '3.6'
 services:
   n8n:
     container_name: ddev-${DDEV_SITENAME}-n8n
-    image: docker.n8n.io/n8nio/n8n:${N8N_TAG:-latest}
+    image: ghcr.io/n8n-io/n8n:latest:${N8N_TAG:-latest}
     networks: [default, ddev_default]
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
